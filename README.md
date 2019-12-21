@@ -27,14 +27,14 @@
     (8) Account login 
 
 ##  流程
-    user進行deploy contract
-    (0) user抵押1000
-    (1) user寫投標板                                        (流程鎖#1)
-    (2) user進行reveal                                     (流程鎖#2)(時間鎖"before(revealEnd)")
-    (3) user決定是否withdraw                                (流程鎖#3)
-    若withdraw,則將當下的抵押餘額存入"pocket",並回到(0)
-    (4) auctionend                                         (時間鎖"after(revealEnd)")
-    (5) 根據用戶之"pocket"中的金額進行還款       
+     用戶進行合約部署(deploy contract)
+    (0) 用戶抵押1000 wei
+    (1) 用戶"寫投標板"(bid)                                           (流程鎖#1)
+    (2) 用戶進行"正式出價"(reveal)                                     (流程鎖#2)(時間鎖"before(revealEnd)")
+    (3) 用戶決定是否"重新寫價"(withdraw)                                (流程鎖#3)
+        若"重新寫價"(withdraw),則將當下的"抵押餘額"(pendingReturning)存入"總還款餘額"(pocket),並回到抵押階段(0)
+    (4) 關閉寫標系統(auctionend)                                                  (時間鎖"after(revealEnd)")
+    (5) 根據用戶之 "總還款餘額"(pocket)中的金額進行還款     
 
 ##  Function Description in blind.sol (Need more detail descrip.)
 ### bid
@@ -50,19 +50,19 @@
         (4) 清除盲標資料(防止重複reveal),進入(5)
         (5) 將refund加入pendingReturn,將用戶狀態設為"2"(已出價)
 ### withdraw
-        (1) 若用戶之pendingReturn不為0,且用戶狀態為"2"(已出價),進入(2)
-        (2) 將pendingReturn的值加入"總還款金額"(pocket  [msg.sender]),並將用戶狀態設為"0"(尚未寫板)
-        p.s.用戶可透過是否能重新可bid去觀察自己是否成功placeBid
+        (1) 若用戶之"抵押餘額"(pendingReturn)不為0,且用戶狀態為"2"(已出價),進入(2)
+        (2) 將"抵押餘額"(pendingReturn)的值加入"總還款金額"(pocket  [msg.sender]),並將用戶狀態設為"0"(尚未寫板)
+        p.s.用戶可透過是否能重新"寫價"(bid)去觀察自己是否成功"更新標金"(placeBid)
 ### auctionEnd
-        (0) 在"revealEnd"之後皆可用
-        (1) 宣告結束(ended = true),更新payvalue
+        (0) 在"出價結束後"(onlyAfter(revealEnd))方可使用
+        (1) 宣告"投標結束"(ended = true),得標者進行扣款
 
 ### checkprice
-            查看highestBid
+            查看"最高標金"(highestBid)
 ### checkhb
-            查看highestBidder
+            查看"得標者"(highestBidder)
 ### checkpocket
-            (0)在"revealEnd"之後皆可用
+            (0)在"投標結束"(ended = true)之後方可使用
             查看"用戶的總還款金額"(pocket[msg.sender])          
 
         
