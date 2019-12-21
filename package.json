@@ -1,0 +1,23 @@
+{
+  "name": "web3js",
+  "version": "1.0.0",
+  "description": "nccu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber": "^1.1.0",
+    "ethereumjs-tx": "^2.1.1",
+    "ethereumjs-wallet": "^0.6.3",
+    "fs-extra": "^8.1.0",
+    "js-sha3": "^0.8.0",
+    "node-gyp": "^6.0.1",
+    "npm": "^6.13.0",
+    "sha3": "^2.1.1",
+    "solc": "^0.4.17",
+    "web3": "^1.2.2"
+  }
+}
