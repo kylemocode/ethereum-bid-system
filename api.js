@@ -65,5 +65,5 @@ app
   .use(router.allowedMethods());
 
 app.listen(9521, () => {
-  console.log('Server started on https://localhost:9521');
+  console.log('Server started on http://localhost:9521');
 });
