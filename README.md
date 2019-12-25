@@ -4,7 +4,7 @@
     Pleas first install by using npm
    
     $ git clone https://github.com/ALLEN-CHUANG/eth_final_project.git
-    $ cd eth_final_project; npm insatll
+    $ cd eth_final_project; npm install
     $ npm install -g ganache-cli
     
 ## Activate 
