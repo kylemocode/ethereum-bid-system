@@ -17,7 +17,7 @@ async function build(accountAddress, bidEnd, revealEnd){
   
   const privkey = Buffer.from(accountKeys.private_keys[accountAddress], 'hex');
 
-	let MyContract = new web3.eth.Contract(abi);
+	const MyContract = new web3.eth.Contract(abi);
     const nonce = await web3.eth.getTransactionCount(accountAddress);
     const txObject = {
         nonce:    web3.utils.toHex(nonce),
@@ -26,7 +26,7 @@ async function build(accountAddress, bidEnd, revealEnd){
         data: await MyContract.deploy({ data: '0x'+ bytecode, arguments: [bidEnd, revealEnd, accountAddress] }).encodeABI()
     }
 
-	var tx = new TX(txObject, {'chain': 'ropsten'});
+	const tx = new TX(txObject, {'chain': 'ropsten'});
     tx.sign(privkey);
     const serializedTX = tx.serialize();
     const rawTX = '0x' + serializedTX.toString('hex');
@@ -36,6 +36,28 @@ async function build(accountAddress, bidEnd, revealEnd){
   
 }
 
+async function bid({
+  accountAddress,
+  contractAddress,
+  value,
+  fake,
+  secret
+}) {
+  const contract = new web3.eth.Contract(abi, contractAddress);
+  const msg = contract.methods.bid(value, fake, secret).send({
+    from: accountAddress,
+    gas: 340000
+  })
+    .on('receipt', function (receipt) {
+      return receipt;
+    })
+    .on('error', function (msg, error) {
+      return error.toString();
+    })
+  return msg;
+};
+
 module.exports = {
   build,
+  bid
 }

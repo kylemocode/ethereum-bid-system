@@ -11,7 +11,7 @@ app.use(bodyParser());
 
 router.get('/accounts', async ctx => {
   ctx.body = {
-    addresses: accountKeys.addresses,
+    addresses: Object.keys(accountKeys.addresses),
   };
 })
 
@@ -35,10 +35,35 @@ router.post('/build', async (ctx) => {
 })
 
 
+router.post('/bid', async (ctx) => {
+  const {
+    accountAddress,
+    contractAddress,
+    value,
+    fake,
+    secret,
+  } = ctx.request.body;
+  if (!accountAddress) {
+    ctx.throw(400, 'accountAddress required')
+  } else if (!contractAddress) {
+    ctx.throw(400, 'contractAddress required')
+  } else if (!value) {
+    ctx.throw(400, 'value required')
+  } else if (!fake) {
+    ctx.throw(400, 'fake required')
+  } else if (!secret) {
+    ctx.throw(400, 'secret required')
+  }
+  const msg = await transactions.bid(ctx.request.body);
+  ctx.body = {
+    result: msg,
+  }
+})
+
 app
   .use(router.routes())
   .use(router.allowedMethods());
 
 app.listen(9521, () => {
-  console.log('Server started on localhost:9521');
+  console.log('Server started on https://localhost:9521');
 });
