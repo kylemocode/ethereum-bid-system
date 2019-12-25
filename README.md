@@ -15,7 +15,7 @@
 
 ## Some function bottoms required (Need input and output declare)
     Rough progress is in main function.
-### for user 
+    for user 
     (0) contract deploy (func: build {input: (private_key, bid_endtime, reveal_endtime, what_account})
     (1) bid ( func: bid )
     (2) reveal auction ( func: reveal )
