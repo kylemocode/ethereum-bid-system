@@ -2,16 +2,16 @@
 
 ##  Install 
     Pleas first install by using npm
-    ```
+   
     $ git clone https://github.com/ALLEN-CHUANG/eth_final_project.git
     $ cd eth_final_project; npm insatll
     $ npm install -g ganache-cli
-    ```
+    
 ## Activate 
     First make sure you have activate Ganache CLI
-    ```
+    
     $ ganache-cli --blockTime 5
-    ```
+    
 
 ## Some function bottoms required (Need input and output declare)
     Rough progress is in main function.
