@@ -57,7 +57,122 @@ async function bid({
   return msg;
 };
 
+async function reveal({
+  accountAddress,
+  contractAddress,
+  value,
+  fake,
+  secret
+}) {
+  const contract = new web3.eth.Contract(abi, contractAddress);
+  const msg = contract.methods.reveal(value, fake, secret).send({
+    from: accountAddress,
+    gas: 340000
+  })
+    .on('receipt', function (receipt) {
+      return receipt;
+    })
+    .on('error', function (msg, error) {
+      return error.toString();
+    })
+  return msg;
+};
+
+async function auctionend({
+  accountAddress,
+  contractAddress
+}) {
+  const contract = new web3.eth.Contract(abi, contractAddress);
+  const msg = contract.methods.auctionEnd().send({
+    from: accountAddress,
+    gas: 340000
+  })
+    .on('receipt', function (receipt) {
+      return receipt;
+    })
+    .on('error', function (msg, error) {
+      return error.toString();
+    })
+  return msg;
+};
+
+async function withdraw({
+  accountAddress,
+  contractAddress
+}) {
+  const contract = new web3.eth.Contract(abi, contractAddress);
+  const msg = contract.methods.withdraw().send({
+    from: accountAddress,
+    gas: 340000
+  })
+    .on('receipt', function (receipt) {
+      return receipt;
+    })
+    .on('error', function (msg, error) {
+      return error.toString();
+    })
+  return msg;
+};
+
+async function get_account_balance({
+  accountAddress
+}) {
+	const weiBalance = await web3.eth.getBalance(accountAddress)
+  web3.utils.fromWei(weiBalance, 'ether').send({
+    from: accountAddress
+  })
+    .on('receipt', function (receipt) {
+      return receipt;
+    })
+    .on('error', function (msg, error) {
+      return error.toString();
+    })
+};
+
+async function highbider({
+  accountAddress,
+  contractAddress
+}) {
+  const contract = new web3.eth.Contract(abi, contractAddress);
+  const msg = contract.methods.checkhb().send({
+    from: accountAddress,
+    gas: 340000
+  })
+    .on('receipt', function (receipt) {
+      return receipt;
+    })
+    .on('error', function (msg, error) {
+      return error.toString();
+    })
+  return msg;
+};
+
+async function chckpokt({
+  accountAddress,
+  contractAddress
+}) {
+  const contract = new web3.eth.Contract(abi, contractAddress);
+  const msg = contract.methods.checkpocket().send({
+    from: accountAddress,
+    gas: 340000
+  })
+    .on('receipt', function (receipt) {
+      return receipt;
+    })
+    .on('error', function (msg, error) {
+      return error.toString();
+    })
+  return msg;
+};
+
+
 module.exports = {
   build,
-  bid
+  bid,
+  reveal,
+  auctionend,
+  withdraw,
+  get_account_balance,
+  highbider,
+  chckpokt
 }
