@@ -10,7 +10,7 @@
 ## Activate 
     First make sure you have activate Ganache CLI
     
-    $ ganache-cli --blockTime 5
+    $ ganache-cli --blockTime 5 --account_keys_path ./accountKeys.json
     
 
 ## Some function bottoms required (Need input and output declare)
