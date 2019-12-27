@@ -12,6 +12,10 @@
     
     $ ganache-cli --blockTime 5 --account_keys_path ./accountKeys.json
     
+    Run Backend
+    
+    $ node api.js
+    
 ## API https://www.getpostman.com/collections/dd43dea6947306ac52bb
 ## Some function bottoms required (Need input and output declare)
     Rough progress is in main function.
