@@ -1,7 +1,4 @@
 export const bodyStyle = {
-  // display: "flex",
-  // justifyContent: "center",
-  // alignItems: "center",
   marginTop: "100px",
   width: "100vw",
   height: "100vh"
@@ -10,7 +7,6 @@ export const bodyStyle = {
 export const loginStyle = {
   container: {
     width: "50%",
-    // minHeight: "100px",
     borderBottom: "solid 1px rgba(0,0,0,0.5)",
     marginLeft: "20px",
     padding: "10px 0px 15px 0px"
@@ -28,7 +24,40 @@ export const loginStyle = {
   },
   currentAccount: {
     marginTop: "15px",
-    fontSize: "14px"
+    fontSize: "14px",
+    color: "rgba(0,0,0,0.7)"
+  }
+};
+
+export const deployStyle = {
+  container: {
+    width: "50%",
+    borderBottom: "solid 1px rgba(0,0,0,0.5)",
+    marginLeft: "20px",
+    padding: "10px 0px 15px 0px",
+    display: "flex",
+    alignItems: "center"
+  },
+  title: {
+    fontWeight: "900"
+  },
+  button: {
+    backgroundColor: "steelblue",
+    borderRadius: "5px",
+    marginLeft: "20px",
+    border: "none",
+    color: "white",
+    cursor: "pointer",
+    minWidth: "50px",
+    height: "30px"
+  },
+  message: {
+    color: "rgba(0,0,0,0.7)",
+    marginLeft: "20px"
+  },
+  successMsg: {
+    fontSize: "12px",
+    marginLeft: "10px"
   }
 };
 

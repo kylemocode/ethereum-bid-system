@@ -28,7 +28,7 @@ const Login = () => {
       {selectedAccount ? (
         <p style={loginStyle.currentAccount}>當前帳號： {currentAccount}</p>
       ) : (
-        <p>尚未登入</p>
+        <p style={loginStyle.currentAccount}>尚未登入</p>
       )}
     </div>
   );
