@@ -1,11 +1,16 @@
 import React from "react";
 import Login from "./components/Login";
+import Header from "./components/Header";
 import { bodyStyle } from "./components/style";
+import AccountContextProvider from "./contexts/AccountContext";
 
 function App() {
   return (
     <div style={bodyStyle}>
-      <Login />
+      <AccountContextProvider>
+        <Header />
+        <Login />
+      </AccountContextProvider>
     </div>
   );
 }
