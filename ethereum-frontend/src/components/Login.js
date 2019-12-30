@@ -4,11 +4,13 @@ import { AccountContext } from "../contexts/AccountContext";
 import { setCurrentAccount } from "../actions/account";
 
 const Login = () => {
-  const { accounts, currentAccount, dispatch } = useContext(AccountContext);
+  const { accounts, currentAccount, dispatch_account } = useContext(
+    AccountContext
+  );
   const [selectedAccount, setSelectedAccount] = useState(null);
 
   const handleClick = () => {
-    dispatch(setCurrentAccount(selectedAccount));
+    dispatch_account(setCurrentAccount(selectedAccount));
   };
 
   return (

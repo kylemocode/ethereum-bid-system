@@ -58,6 +58,39 @@ export const deployStyle = {
   successMsg: {
     fontSize: "12px",
     marginLeft: "10px"
+  },
+  failMsg: {
+    fontSize: "12px",
+    marginLeft: "10px"
+  }
+};
+
+export const bidStyle = {
+  container: {
+    width: "50%",
+    borderBottom: "solid 1px rgba(0,0,0,0.5)",
+    marginLeft: "20px",
+    padding: "10px 0px 15px 0px"
+  },
+  title: {
+    fontWeight: "900"
+  },
+  button: {
+    backgroundColor: "steelblue",
+    borderRadius: "5px",
+
+    border: "none",
+    color: "white",
+    cursor: "pointer",
+    minWidth: "50px",
+    height: "30px",
+    fontSize: "14px"
+  },
+  span: {
+    fontWeight: "700"
+  },
+  info: {
+    fontSize: "13px"
   }
 };
 

@@ -5,7 +5,7 @@ import axios from "axios";
 export const AccountContext = createContext();
 
 const AccountContextProvider = props => {
-  const [currentAccount, dispatch] = useReducer(accountReducer, "");
+  const [currentAccount, dispatch_account] = useReducer(accountReducer, "");
   const [accounts, setAccounts] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8545/accounts").then(res => {
@@ -14,7 +14,9 @@ const AccountContextProvider = props => {
   }, []);
 
   return (
-    <AccountContext.Provider value={{ accounts, dispatch, currentAccount }}>
+    <AccountContext.Provider
+      value={{ accounts, dispatch_account, currentAccount }}
+    >
       {props.children}
     </AccountContext.Provider>
   );
