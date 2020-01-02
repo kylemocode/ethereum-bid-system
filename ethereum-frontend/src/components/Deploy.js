@@ -44,7 +44,7 @@ const Deploy = () => {
           部署成功！合約位置： {currentContract}
         </p>
       ) : null}
-      {hasError ? <p>部署失敗</p> : null}
+      {hasError ? <p style={deployStyle.failMsg}>部署失敗</p> : null}
     </div>
   );
 };
