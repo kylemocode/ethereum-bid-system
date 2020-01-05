@@ -141,8 +141,6 @@ async function highbider({
     gas: 340000
   })
   return bidder;
-};
-
 
 async function highprice({
   accountAddress,
@@ -156,7 +154,6 @@ async function highprice({
   })
   return price;
 };
-
 
 async function chckpokt({
   accountAddress,

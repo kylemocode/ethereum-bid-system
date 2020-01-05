@@ -1,7 +1,7 @@
 #  盲拍投標板
 
 ##  Install 
-    Pleas first install by using npm
+    Please first install by using npm
    
     $ git clone https://github.com/ALLEN-CHUANG/eth_final_project.git
     $ cd eth_final_project; npm install
@@ -11,6 +11,10 @@
     First make sure you have activate Ganache CLI
     
     $ ganache-cli --blockTime 5 --account_keys_path ./accountKeys.json
+    
+    Run Backend
+    
+    $ node api.js
     
 ## API https://www.getpostman.com/collections/dd43dea6947306ac52bb
 ## Some function bottoms required (Need input and output declare)
@@ -23,8 +27,7 @@
     (4) auction end ( func: auctionEnd )
     (5) get highest bid price ( func: highbid )
     (6) who is highbider ( func: highbider )
-    (7) get account balance
-    (8) Account login 
+    (7) get account balance 
 
 ##  流程
      用戶進行合約部署(deploy contract)
