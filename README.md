@@ -1,7 +1,7 @@
 #  盲拍投標板
 
 ##  Install 
-    Pleas first install by using npm
+    Please first install by using npm
    
     $ git clone https://github.com/ALLEN-CHUANG/eth_final_project.git
     $ cd eth_final_project; npm install
