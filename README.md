@@ -27,8 +27,7 @@
     (4) auction end ( func: auctionEnd )
     (5) get highest bid price ( func: highbid )
     (6) who is highbider ( func: highbider )
-    (7) get account balance
-    (8) Account login 
+    (7) get account balance 
 
 ##  流程
      用戶進行合約部署(deploy contract)
