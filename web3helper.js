@@ -117,7 +117,7 @@ async function withdraw({
 async function get_account_balance({
   accountAddress
 }) {
-	const weiBalance = await web3.eth.getBalance(accountAddress)
+  const weiBalance = await web3.eth.getBalance(accountAddress)
   web3.utils.fromWei(weiBalance, 'ether').send({
     from: accountAddress
   })
@@ -129,40 +129,46 @@ async function get_account_balance({
     })
 };
 
+
 async function highbider({
   accountAddress,
   contractAddress
 }) {
+
   const contract = new web3.eth.Contract(abi, contractAddress);
-  const msg = contract.methods.checkhb().send({
+  const bidder = contract.methods.checkhb().call({
     from: accountAddress,
     gas: 340000
   })
-    .on('receipt', function (receipt) {
-      return receipt;
-    })
-    .on('error', function (msg, error) {
-      return error.toString();
-    })
-  return msg;
+  return bidder;
 };
+
+
+async function highprice({
+  accountAddress,
+  contractAddress
+}) {
+
+  const contract = new web3.eth.Contract(abi, contractAddress);
+  const price = contract.methods.checkprice().call({
+    from: accountAddress,
+    gas: 340000
+  })
+  return price;
+};
+
 
 async function chckpokt({
   accountAddress,
   contractAddress
 }) {
+
   const contract = new web3.eth.Contract(abi, contractAddress);
-  const msg = contract.methods.checkpocket().send({
+  const pokt = contract.methods.checkpocket().call({
     from: accountAddress,
     gas: 340000
   })
-    .on('receipt', function (receipt) {
-      return receipt;
-    })
-    .on('error', function (msg, error) {
-      return error.toString();
-    })
-  return msg;
+  return pokt;
 };
 
 

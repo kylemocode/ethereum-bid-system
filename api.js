@@ -130,7 +130,20 @@ router.post("/highbider", async ctx => {
   } else if (!contractAddress) {
     ctx.throw(400, "contractAddress required");
   }
-  const msg = await transactions.checkhb(ctx.request.body);
+  const msg = await transactions.highbider(ctx.request.body);
+  ctx.body = {
+    result: msg
+  };
+});
+
+router.post("/highprice", async ctx => {
+  const { accountAddress, contractAddress } = ctx.request.body;
+  if (!accountAddress) {
+    ctx.throw(400, "accountAddress required");
+  } else if (!contractAddress) {
+    ctx.throw(400, "contractAddress required");
+  }
+  const msg = await transactions.highprice(ctx.request.body);
   ctx.body = {
     result: msg
   };
