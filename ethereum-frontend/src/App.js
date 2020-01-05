@@ -5,6 +5,7 @@ import Deploy from "./components/Deploy";
 import Bid from "./components/Bid";
 import Withdraw from "./components/Withdraw";
 import Reveal from "./components/Reveal";
+import ActionEnd from "./components/AuctionEnd";
 import { bodyStyle } from "./components/style";
 import AccountContextProvider from "./contexts/AccountContext";
 import ContractContextProvider from "./contexts/ContractContext";
@@ -26,6 +27,7 @@ function App() {
                 <Bid />
                 <Reveal />
                 <Withdraw />
+                <ActionEnd />
               </RefundContextProvider>
             </BidValueContextProvider>
           </UserStatusContextProvider>

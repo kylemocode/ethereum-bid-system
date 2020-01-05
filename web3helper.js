@@ -90,7 +90,7 @@ async function auctionend({
     .on('receipt', function (receipt) {
       return receipt;
     })
-    .on('error', function (msg, error) {
+    .on('error', function (error) {
       return error.toString();
     })
   return msg;
@@ -180,5 +180,6 @@ module.exports = {
   withdraw,
   get_account_balance,
   highbider,
-  chckpokt
+  chckpokt,
+  highprice
 }
