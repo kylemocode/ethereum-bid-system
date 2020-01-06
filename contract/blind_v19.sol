@@ -186,7 +186,7 @@ contract BlindAuction {
     /// to the beneficiary.
     function auctionEnd()
         public
-        onlyAfter(revealEnd)
+        //onlyAfter(revealEnd)
     {
         require(!ended);
         emit AuctionEnded(highestBidder, highestBid); ///<-----得標者highestbidder
