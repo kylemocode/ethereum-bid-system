@@ -141,6 +141,7 @@ async function highbider({
     gas: 340000
   })
   return bidder;
+};
 
 async function highprice({
   accountAddress,
