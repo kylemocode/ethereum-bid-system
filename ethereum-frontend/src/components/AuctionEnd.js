@@ -20,10 +20,10 @@ const AuctionEnd = () => {
   const { userStatus, dispatch_status } = useContext(UserStatusContext);
 
   const handleAuctionEnd = () => {
-    if (userStatus !== 2) {
-      alert("用戶狀態無法關閉寫標系統");
-      return;
-    }
+    // if (userStatus !== 2) {
+    //   alert("用戶狀態無法關閉寫標系統");
+    //   return;
+    // }
     if (!currentAccount || !currentContract) {
       alert("請先完成登入與部屬");
       return;
@@ -57,6 +57,7 @@ const AuctionEnd = () => {
         setHighprice(res.data.result);
       })
       .catch(err => console.log(err));
+
   };
   return (
     <div style={withdrawStyle.container}>
@@ -69,7 +70,7 @@ const AuctionEnd = () => {
         <div>
           <p style={withdrawStyle.info}>
             <span style={withdrawStyle.span}>
-              關閉寫標系統成功！ 
+              關閉寫標系統成功！
             </span>
           </p>
           <p>得標者: {highbider} </p>

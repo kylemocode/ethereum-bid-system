@@ -45,7 +45,7 @@ const Reveal = () => {
         setRevealRes(res.data.result);
         setIsRevealEnd(true);
         setIsRevealing(false);
-        dispatch_status(setUserStatus(2));
+        dispatch_status(setUserStatus(0));
       })
       .catch(err => console.log(err));
   };
